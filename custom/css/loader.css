@@ -1,0 +1,94 @@
+ /* Styles for the loading screen */
+ #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+    conic-gradient(at 10% 50%,#0000 75%,rgba(222, 222, 222, 0.41) 0),
+    conic-gradient(at 10% 50%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(1*14px) calc(3*14px),
+    conic-gradient(at 10% 50%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(2*14px) calc(1*14px),
+    conic-gradient(at 10% 50%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(3*14px) calc(4*14px),
+    conic-gradient(at 10% 50%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(4*14px) calc(2*14px),
+    conic-gradient(at 50% 10%,#0000 75%,rgba(222, 222, 222, 0.41) 0) 0 calc(4*14px),
+    conic-gradient(at 50% 10%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(1*14px) calc(2*14px),
+    conic-gradient(at 50% 10%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(2*14px) 0,
+    conic-gradient(at 50% 10%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(3*14px) calc(3*14px),
+    conic-gradient(at 50% 10%,#0000 75%,rgba(222, 222, 222, 0.41) 0) calc(4*14px) calc(1*14px),
+    #ffffff;
+    background-size: 70px 70px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure loading screen appears on top */
+    transition: opacity 0.5s ease; /* Add fade-out transition */
+}
+
+
+#loading-screen.hidden {
+    opacity: 0; /* Hide the loading screen when opacity is 0 */
+    pointer-events: none; /* Disable pointer events when hidden */
+}
+
+#loading-text {
+    font-size: 24px;
+    color: #000000; /* Change to desired text color */
+}
+.spinner {
+    width: 70.4px;
+    height: 70.4px;
+    animation: spinner-y0fdc1 2.4s infinite ease;
+    transform-style: preserve-3d;
+}
+
+.spinner > div {
+    background-color: rgba(240,113,103,0.2);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    border: 3.5px solid #f07167;
+}
+
+.spinner div:nth-of-type(1) {
+    transform: translateZ(-35.2px) rotateY(180deg);
+}
+
+.spinner div:nth-of-type(2) {
+    transform: rotateY(-270deg) translateX(50%);
+    transform-origin: top right;
+}
+
+.spinner div:nth-of-type(3) {
+    transform: rotateY(270deg) translateX(-50%);
+    transform-origin: center left;
+}
+
+.spinner div:nth-of-type(4) {
+    transform: rotateX(90deg) translateY(-50%);
+    transform-origin: top center;
+}
+
+.spinner div:nth-of-type(5) {
+    transform: rotateX(-90deg) translateY(50%);
+    transform-origin: bottom center;
+}
+
+.spinner div:nth-of-type(6) {
+    transform: translateZ(35.2px);
+}
+
+@keyframes spinner-y0fdc1 {
+    0% {
+        transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+    }
+    
+    50% {
+        transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+    }
+    
+    100% {
+        transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+    }
+}
